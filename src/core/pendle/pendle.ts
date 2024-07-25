@@ -107,28 +107,28 @@ export async function pendleDepositETH(account: PrivateKeyAccount) {
         return undefined;
     });
 
-    // if (signature !== undefined) {
-    //     const hash = await walletClient.sendRawTransaction({ serializedTransaction: signature }).catch((e) => {
-    //         printError(`Произошла ошибка во время выполнения модуля ${pendleModuleName} ${e}`);
-    //         return false;
-    //     });
-    //
-    //     if (hash == false) {
-    //         return false;
-    //     }
-    //
-    //     const url = `${mainnet.blockExplorers?.default.url + '/tx/' + hash}`;
-    //
-    //     const transaction = await client
-    //         .waitForTransactionReceipt({ hash: <`0x${string}`>hash })
-    //         .then((result) => printSuccess(`Транзакция успешно отправлена. Хэш транзакции: ${url}\n`))
-    //         .catch((e) => {
-    //             printError(`Произошла ошибка во время выполнения модуля ${pendleModuleName} - ${e}`);
-    //             return { request: undefined };
-    //         });
-    //
-    //     return true;
-    // }
+    if (signature !== undefined) {
+        const hash = await walletClient.sendRawTransaction({ serializedTransaction: signature }).catch((e) => {
+            printError(`Произошла ошибка во время выполнения модуля ${pendleModuleName} ${e}`);
+            return false;
+        });
+
+        if (hash == false) {
+            return false;
+        }
+
+        const url = `${mainnet.blockExplorers?.default.url + '/tx/' + hash}`;
+
+        const transaction = await client
+            .waitForTransactionReceipt({ hash: <`0x${string}`>hash })
+            .then((result) => printSuccess(`Транзакция успешно отправлена. Хэш транзакции: ${url}\n`))
+            .catch((e) => {
+                printError(`Произошла ошибка во время выполнения модуля ${pendleModuleName} - ${e}`);
+                return { request: undefined };
+            });
+
+        return true;
+    }
 
     return false;
 }
