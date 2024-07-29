@@ -46,7 +46,7 @@ async function main() {
 
             printSuccess(`Ended [${index + 1}/${count} - ${account.address}]\n`);
 
-            fs.appendFile('src/assets/completed_accounts.txt', `${line}\n`, 'utf8', (err) => {
+            fs.appendFile('src/assets/completed_accounts', `${line}\n`, 'utf8', (err) => {
                 if (err) {
                     printError(`Произошла ошибка при записи в файл: ${err}`);
                 }

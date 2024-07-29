@@ -5,10 +5,10 @@ export const pendleModuleName = 'Pendle deposit ETH to get YT pzETH';
 export const pendleContractAddress = '0x888888888889758F76e7103c6CbF23ABbF58F946';
 export const pendleMarketContractAddress = '0xd3bb297264bd6115aE163db4153038a79D78acBA';
 
-export const ytOut: IBridgeRange = { minRange: 38, maxRange: 38.5 };
-export const guessMin: IBridgeRange = { minRange: 20, maxRange: 21 };
-export const guessMax: IBridgeRange = { minRange: 44, maxRange: 45 };
-export const guessOffchain: IBridgeRange = { minRange: 40, maxRange: 41.5 };
+export const ytOut: IBridgeRange = { minRange: 44.9, maxRange: 46 }; //44.9 22.9 50 45.8
+export const guessMin: IBridgeRange = { minRange: 22.9, maxRange: 24 };
+export const guessMax: IBridgeRange = { minRange: 50, maxRange: 51 };
+export const guessOffchain: IBridgeRange = { minRange: 45.8, maxRange: 47 };
 export const maxIteration = 30;
 export const eps = 1000000000000000;
 
